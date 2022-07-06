@@ -42,10 +42,6 @@ export const current = async (req, res) => {
         }catch(err){
             console.error("Error while setting current weather to redis");
         }
-        
-          
-
-
         res.status(200).json(resultData);
 
 

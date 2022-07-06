@@ -34,7 +34,7 @@ export const daily = async (req, res) => {
         
         try{
             //set daily weather to redis
-            redisClient.setex(`current_${lon}-${lat}`, process.env.CACHE_CURRENT_EXPIRATION, JSON.stringify(resultData));
+            redisClient.setex(`daily_${lon}-${lat}`, process.env.CACHE_CURRENT_EXPIRATION, JSON.stringify(resultData));
         }catch(err){
             console.error("Error while setting daily weather to redis");
         }

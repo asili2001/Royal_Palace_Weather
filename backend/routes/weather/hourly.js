@@ -54,7 +54,7 @@ export const hourly = async (req, res) => {
 
         try{
             //set hourly weather to redis
-            redisClient.setex(`current_${lon}-${lat}`, process.env.CACHE_CURRENT_EXPIRATION, JSON.stringify(resultData));
+            redisClient.setex(`hourly_${lon}-${lat}`, process.env.CACHE_CURRENT_EXPIRATION, JSON.stringify(resultData));
         }catch(err){
             console.error("Error while setting hourly weather to redis");
         }

@@ -22,16 +22,17 @@ const WeatherPanel = () =>{
 
     const { loading, loadingStart, loadingStop } = useContext(LoadingContext);
 
-    
-    useEffect(()=>{
-        //loadingStart();
-        if(typeof(currentWeather?.sunrise) === 'number'){
-            loadingStop();
-        }
-    }, [currentWeather])
 
     const sunrise = new Date(currentWeather?.sunrise * 1000);
     const sunset = new Date(currentWeather?.sunset * 1000);
+
+    useEffect(()=>{
+        const x = typeof(currentWeather?.sunrise);
+        if (x === "number"){
+            loadingStop();
+            console.log("start");
+        }
+    }, [currentWeather])
 
 
 
@@ -59,7 +60,6 @@ const WeatherPanel = () =>{
     }
     return(
         <div className="weather">
-
             {/* Wheather Overview */}
             <div>
                 {

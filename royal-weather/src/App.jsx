@@ -123,6 +123,3 @@ const App = () =>{
 }
 
 export default App;
-
-
-//ändring
