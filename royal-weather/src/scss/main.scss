@@ -1,0 +1,446 @@
+@import 'variables.scss';
+@import 'animations.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+//   outline: solid 2px  red;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    color: $DarkGray;
+}
+
+html, body, #root{
+    font-family: "open sans", arial,helvetica,sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+button{
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-transform: uppercase;
+    padding: 15px;
+    transition: 0.5s ease all;
+    font-size: 12px;
+    font-weight: bolder;
+    border: 5px solid $Gold;
+
+    &:hover{
+        background: $Gold;
+        color: white;
+    }
+
+    @media screen and (min-width: $mobile){
+        font-size: 15px;
+    }
+}
+
+button.active{
+    background: $Gold;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+// symbols background
+.raining-bg{
+    background: url('../assets/symbols/rain.gif') no-repeat center center fixed;
+}
+
+.snowing-bg{
+    background: url('../assets/symbols/snow.gif') no-repeat center center fixed;
+}
+
+.lightning-bg{
+    background: url('../assets/symbols/lightning.gif'), url('../assets/symbols/rain.gif') no-repeat center center fixed;
+}
+
+.cloud-bg{
+    background: url('../assets/symbols/cloud.gif') no-repeat center center fixed;
+}
+
+.fog-bg{
+    background: url('../assets/symbols/fog.gif') no-repeat center center fixed;
+}
+
+.sunny-bg{
+    background: radial-gradient(#ffa800, transparent);
+}
+
+
+#__loading{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #feefc6;
+}
+
+.panel1{
+    width: 100%;
+    height: 55%;
+    background-image: url("../assets/wallpaper.jpg");
+    background-position: top;
+    background-size: cover;
+
+    >.wrapper{
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(4px);
+        background: hsl(0deg 0% 100% / 50%);
+        border-bottom: 7px solid $Gold;
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @media screen and (min-width: $tablet){
+            padding: 3rem;
+        }
+            
+
+        .header{
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and (min-width: $tablet){
+                height:75px;
+            }
+
+            .logo img{
+                height: 10vw;
+
+                @media screen and (min-width: $tablet){
+                    height:100%;
+                }
+            }
+
+            .title{
+                font-weight: bolder;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                p{
+                    font-size: 3.5vw;
+                }
+                h1{
+                    font-size: 4vw;
+                }
+                
+
+                @media screen and (min-width: $tablet){
+                    p{
+                        font-size: 1.5em;
+                    }
+                    h1{
+                        font-size: 2em;
+                    }
+                }
+
+                .time-location{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+    
+                    svg{
+                        height: 40px;
+                        width: 30px;
+                    }
+                    div{
+                        font-size: 0.6rem;
+
+                        address{
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .data-container{
+            display: block;
+            height: 295px;
+
+            @media screen and (min-width: $tablet){
+                display: flex;
+                justify-content: space-between;
+                gap: 75px;
+            }
+            
+            .weather{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                height: 295px;
+
+               > div:nth-child(1){
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    grid-area: 1 / 1 / 2 / 2;
+
+                    svg{
+                        height: 150px;
+                        width: 150px;
+
+                        @media screen and (min-width: $mobile){
+                            height: 175px;
+                            width: 175px;
+                        }
+                    }
+
+                    h2{
+                        font-size: 20px;
+                        @media screen and (min-width: $mobile){
+                            font-size: 20px;
+                        }
+                    }
+                }
+
+                > div:nth-child(2){
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    grid-area: 1 / 2 / 2 / 3;
+
+
+                    .temp{
+                        p{
+                            font-weight: bolder;
+                        }
+                        h2{
+                            font-size:90px;
+                            font-weight: bolder;
+
+                            @media screen and (min-width: $mobile){
+                                font-size: 100px;
+                            }
+                        }
+                    }
+
+                    .sun-pos{
+                        display: flex;
+                        height: 90px;
+                        flex-direction: row;
+                        justify-content: space-around;
+
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-evenly;
+
+                            img{
+                                height: 60px;
+
+                                @media screen and (min-width: $mobile){
+                                    height: 65px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                > div:nth-child(3){
+                    display: flex;
+                    font-size: 20px;
+                    align-items: center;
+                    gap: 10px;
+                    grid-area: 2 / 1 / 3 / 3;
+
+                    div{
+                        height: 10px;
+                        width: 100%;
+                        background-image: linear-gradient(to right, #cdeaff , #0085ff);
+                        border-radius: 10px;
+                    }
+                }
+            }
+            .time-location{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                img{
+                    height: 130px;
+                }
+            }
+        }
+
+        .interaction-menu{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            background-image: linear-gradient(315deg, #ffefc5, transparent);
+            gap: 10px;
+
+            .right{
+                margin-left:auto;
+            }
+        }
+    }
+}
+
+.panel2{
+    width: 100%;
+    height: 45%;
+    background: #fcfcfc;
+
+    .swiper-container{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .forecast-list{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        height: 100%;
+        overflow: auto;
+
+       >h1{
+            padding: 10px 0 0 0;
+        }
+
+        .forecasts-container{
+            height: 100%;
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat( auto-fit, minmax(170px, 200px) );
+            justify-content: center;
+            justify-items: center;
+            gap: 10px;
+            padding: 10px;
+
+            @media screen and (min-width: $desktop){
+                width: 1300px;
+                margin: 0 auto;
+            }
+
+            .big{
+                width: 100%;
+
+                @media screen and (min-width: $mobile){
+                    width: 175px;
+                }
+            }
+            .small{
+                width: 100px;
+            }
+
+            .no-bookmarks{
+                position: absolute;
+
+                >h2{
+                    font-size: 1.5rem;
+                    color: #555555;
+                }
+                >p{
+                    font-size: 1rem;
+                    color: #787878;
+                }
+            }
+
+            .item{
+                background-color: #feefc6;
+                border-radius: 20px;
+                box-shadow: 6px 3px 7px 0px #cbbe9c;
+                padding: 15px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .bookmarkBtn{
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    img{
+                        height: 35px;
+                    }
+                }
+
+                .hlTemp{
+                    display: flex;
+
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: center;
+
+                        img{
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .hourly-forecast{
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+
+        .date-picker{
+            width: 100%;
+            background-color: #d19700;
+            list-style: none;
+            gap: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+            li{
+                height: 50px;
+                min-width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                cursor: pointer;
+                transition: .5s ease all;
+
+                &:hover{
+                    background-color: #ffffff63;
+                }
+            }
+
+            li.active{
+                color: black;
+                background: #feefc6;
+            }
+        }
+
+        .default{
+            border: 3px dotted #710c3e;
+        }
+    }
+}

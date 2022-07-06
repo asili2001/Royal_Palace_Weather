@@ -1,0 +1,120 @@
+svg {
+    overflow: inherit;
+    #symbol{
+        #rays{
+            fill: #FFEEB0;
+
+            @for $i from 1 through 15 {
+                .ray:nth-child(15n + #{$i}){
+                    animation: fadeIn  #{$i}s ease-in alternate infinite;
+                }
+            }
+        }
+
+        #clouds{
+
+            @for $i from 1 through 2{
+                .cloud:nth-child(2n + #{$i}){
+                    fill: #ffffff;
+                    animation: moveHorizontal #{$i}0s ease-in alternate infinite;
+                }
+            }
+        }
+
+        #lWaterDrops{
+
+            @for $i from 1 through 4{
+                .waterDrop:nth-child(4n + #{$i}){
+                    animation: moveVertical #{$i + 1}s ease-in infinite;
+                }
+            }
+        }
+
+        #HWaterDrops{
+
+            @for $i from 1 through 4{
+                .waterDrop:nth-child(4n + #{$i}){
+                    animation: moveVertical #{$i - 0.4}s ease-in infinite;
+                }
+            }
+        }
+        #thunder{
+            animation: thunder 5s infinite;
+        }
+        #snow{
+            @for $i from 1 through 10{
+                .flack:nth-child(10n + #{$i}){
+                    animation: moveVertical #{$i + 1}s ease-in infinite;
+                }
+            }
+        }
+
+        #atmosphere{
+            animation: moveHorizontal 5s ease-in alternate infinite;
+        }
+
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes moveVertical {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(70px);
+        opacity: 0;
+    }
+}
+
+@keyframes thunder {
+    0% {
+        transform: translateY(0);
+        fill: black;
+        opacity: 1;
+    }
+    4% {
+        transform: translateY(0);
+        fill: rgb(255, 255, 255);
+        opacity: 1;
+    }
+    8% {
+        transform: translateY(0);
+        fill: black;
+        opacity: 1;
+    }
+    12% {
+        transform: translateY(0);
+        fill: rgb(255, 255, 255);
+        opacity: 1;
+    }
+    16% {
+        transform: translateY(0);
+        fill: black;
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px);
+        fill: rgb(255, 255, 255);
+        opacity: 0;
+    }
+}
