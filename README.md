@@ -4,10 +4,14 @@
 
 Royal Weather is a web application made for the royal palace in Stockholm. It shows current, hourly and even daily forecasts. You can even bookmark days to see them later.
 
+#
 
 ![image](https://user-images.githubusercontent.com/91294361/177567501-d12181f5-9f7d-454c-8006-0e2dba127bdf.png)
 ![image](https://user-images.githubusercontent.com/91294361/177567198-3359a407-80ea-4715-9b0c-ce53a578fc85.png)
 ![image](https://user-images.githubusercontent.com/91294361/177567332-2e92fbe9-34a6-4e1d-8fd4-326aa63d282a.png)
+![image](https://user-images.githubusercontent.com/91294361/177887256-5ddcc646-019d-4751-b05a-ebf86958193f.png)
+![image](https://user-images.githubusercontent.com/91294361/177887354-438c3ddd-1ffe-4e8a-8a9f-b050b3a70568.png)
+
 
 # Demo
 (https://weather.asili.site)
