@@ -9,6 +9,8 @@ Royal Weather is a web application made for the royal palace in Stockholm. It sh
 ![image](https://user-images.githubusercontent.com/91294361/177567198-3359a407-80ea-4715-9b0c-ce53a578fc85.png)
 ![image](https://user-images.githubusercontent.com/91294361/177567332-2e92fbe9-34a6-4e1d-8fd4-326aa63d282a.png)
 
+# Demo
+(https://weather.asili.site)
 
 
 # Setup
@@ -120,6 +122,11 @@ Unpacking objects: 100% (13/13), done.
     The openweathermap api key can you get by signing up. follow the [link](https://openweathermap.org/)
 
     Type `cd ../royal-weather` to go back to the frontend directory and then type `npm i` to install all the dependencies.
+    
+7.  ### start the application
+    In your bash terminal, head to the frontend (royal-weather) and type `npm run dev` to start. or type `npm run build` to build the app and host it in your webserver
+    
+    To run the backend, head to the backend directory in your terminal and type `npm run dev` to start the server!
     
     
 
