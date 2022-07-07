@@ -26,14 +26,6 @@ const WeatherPanel = () =>{
     const sunrise = new Date(currentWeather?.sunrise * 1000);
     const sunset = new Date(currentWeather?.sunset * 1000);
 
-    useEffect(()=>{
-        const x = typeof(currentWeather?.sunrise);
-        if (x === "number"){
-            loadingStop();
-            console.log("start");
-        }
-    }, [currentWeather])
-
 
 
     const renderSymbolComponent = () => {
