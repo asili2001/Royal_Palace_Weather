@@ -91,7 +91,7 @@ a{
 
 .panel1{
     width: 100%;
-    height: 55%;
+    height: 60%;
     background-image: url("../assets/wallpaper.jpg");
     background-position: top;
     background-size: cover;
@@ -105,7 +105,6 @@ a{
         padding: 0.6rem;
         display: flex;
         flex-direction: column;
-        gap: 15px;
 
         @media screen and (min-width: $tablet){
             padding: 3rem;
@@ -186,19 +185,24 @@ a{
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(2, 1fr);
-                height: 295px;
+                height: 210px;
+                gap: 10px;
+
+                @media screen and (min-width: $tablet){
+                    height: 100%;
+                }
 
                > div:nth-child(1){
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: flex-end;
                     justify-content: center;
                     gap: 10px;
-                    grid-area: 1 / 1 / 2 / 2;
+                    grid-area: 1/1/2/2;
 
                     svg{
-                        height: 150px;
-                        width: 150px;
+                        height: 120px;
+                        width: 120px;
 
                         @media screen and (min-width: $mobile){
                             height: 175px;
@@ -207,7 +211,7 @@ a{
                     }
 
                     h2{
-                        font-size: 20px;
+                        font-size: 18px;
                         @media screen and (min-width: $mobile){
                             font-size: 20px;
                         }
@@ -219,8 +223,8 @@ a{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
-                    grid-area: 1 / 2 / 2 / 3;
+                    align-items: flex-start;
+                    grid-area: 1/2/2/3;
 
 
                     .temp{
@@ -228,7 +232,7 @@ a{
                             font-weight: bolder;
                         }
                         h2{
-                            font-size:90px;
+                            font-size: 75px;
                             font-weight: bolder;
 
                             @media screen and (min-width: $mobile){
@@ -242,6 +246,7 @@ a{
                         height: 90px;
                         flex-direction: row;
                         justify-content: space-around;
+                        gap: 5px;
 
                         div{
                             display: flex;
@@ -250,11 +255,18 @@ a{
                             justify-content: space-evenly;
 
                             img{
-                                height: 60px;
+                                height: 45px;
 
                                 @media screen and (min-width: $mobile){
                                     height: 65px;
                                 }
+                            }
+
+                            @media screen and (min-width: $mobile){
+                                h2{
+                                    font-size: 18px;
+                                }
+                                
                             }
                         }
                     }
@@ -307,7 +319,7 @@ a{
 
 .panel2{
     width: 100%;
-    height: 45%;
+    height: 40%;
     background: #fcfcfc;
 
     .swiper-container{
@@ -332,7 +344,7 @@ a{
             height: 100%;
             align-items: center;
             display: grid;
-            grid-template-columns: repeat( auto-fit, minmax(170px, 200px) );
+            grid-template-columns: repeat( auto-fit, minmax(170px, 100%) );
             justify-content: center;
             justify-items: center;
             gap: 10px;
@@ -341,6 +353,10 @@ a{
             @media screen and (min-width: $desktop){
                 width: 1300px;
                 margin: 0 auto;
+            }
+
+            @media screen and (min-width: $tablet){
+                grid-template-columns: repeat(auto-fit,minmax(170px,200px));
             }
 
             .big{
