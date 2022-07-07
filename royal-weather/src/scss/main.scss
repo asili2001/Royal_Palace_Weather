@@ -186,7 +186,7 @@ a{
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(2, 1fr);
                 height: 210px;
-                gap: 10px;
+                gap: 20px;
 
                 @media screen and (min-width: $tablet){
                     height: 100%;
@@ -196,7 +196,7 @@ a{
                     display: flex;
                     flex-direction: column;
                     align-items: flex-end;
-                    justify-content: center;
+                    justify-content: space-between;
                     gap: 10px;
                     grid-area: 1/1/2/2;
 
@@ -243,7 +243,7 @@ a{
 
                     .sun-pos{
                         display: flex;
-                        height: 90px;
+                        height: 80px;
                         flex-direction: row;
                         justify-content: space-around;
                         gap: 5px;
@@ -252,7 +252,7 @@ a{
                             display: flex;
                             flex-direction: column;
                             align-items: center;
-                            justify-content: space-evenly;
+                            justify-content: space-between;
 
                             img{
                                 height: 45px;
@@ -262,11 +262,11 @@ a{
                                 }
                             }
 
-                            @media screen and (min-width: $mobile){
-                                h2{
-                                    font-size: 18px;
+                            h2{
+                                font-size: 18px;
+                                @media screen and (min-width: $mobile){
+                                    font-size: 20px;
                                 }
-                                
                             }
                         }
                     }
