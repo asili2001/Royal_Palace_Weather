@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import CurrentWeatherContext from '../context/CurrentWeather.context';
 import useWeatherSymbol from '../hooks/useWeatherSymbol';
+
 import SunRise from '../assets/symbols/sunrise.png';
 import SunSet from '../assets/symbols/sunset.png';
-
 
 import SunnySymbol from './symbols/Sunny.symbol';
 import PartlySunnySymbol from './symbols/PartlySunny.symbol';
@@ -19,9 +19,6 @@ import LoadingContext from '../context/Loading.context';
 const WeatherPanel = () =>{
     const { currentWeather } = useContext(CurrentWeatherContext);
     const weatherSymbol = useWeatherSymbol(currentWeather?.weather);
-
-    const { loading, loadingStart, loadingStop } = useContext(LoadingContext);
-
 
     const sunrise = new Date(currentWeather?.sunrise * 1000);
     const sunset = new Date(currentWeather?.sunset * 1000);

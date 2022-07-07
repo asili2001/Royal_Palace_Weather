@@ -1,5 +1,7 @@
-import ArrowUp from '../assets/symbols/arrow-up.svg';
 import BookmarkBtn from './BookmarkBtn';
+
+import ArrowUp from '../assets/symbols/arrow-up.svg';
+
 const WeatherCard = ({data}) => {
     return(
         <div className={`item ${data.size} ${data.bg}`} >

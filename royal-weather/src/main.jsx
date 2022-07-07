@@ -4,11 +4,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
 import { DailyWeatherProvider } from './context/DailyWeather.context'
 import { HourlyWeatherProvider } from './context/HourlyWeather.context'
-import ReactDOM from 'react-dom/client'
-import App from './App'
 import { CurrentWeatherProvider } from './context/CurrentWeather.context';
 import { LoadingProvider } from './context/Loading.context';
 import { BookmarkProvider } from './context/Bookmark.context';

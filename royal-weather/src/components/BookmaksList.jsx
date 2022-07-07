@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
+
 import BookmarkContext from '../context/Bookmark.context';
 import useWeatherSymbol from '../hooks/useWeatherSymbol';
-
 
 import WeatherCard from './WeatherCard';
 

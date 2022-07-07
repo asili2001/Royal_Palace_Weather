@@ -1,5 +1,6 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
 import WeatherCard from './WeatherCard';
+
 import DailyWeatherContext from '../context/DailyWeather.context';
 import useWeatherSymbol from '../hooks/useWeatherSymbol';
 

@@ -1,7 +1,9 @@
+import LoadingIcon from '../assets/loading.gif'
+
 const loading = () => {
     return(
         <div id="__loading">
-            <img src="./src/assets/loading.gif" alt="loading" />
+            <img src={LoadingIcon} alt="loading" />
         </div>
     )
 }
