@@ -121,6 +121,11 @@ Unpacking objects: 100% (13/13), done.
 
     Type `cd ../royal-weather` to go back to the frontend directory and then type `npm i` to install all the dependencies.
     
+7.  ### start the application
+    In your bash terminal, head to the frontend (royal-weather) and type `npm run dev` to start. or type `npm run build to build the app and host it in your webserver`
+    
+    To run the backend, head to the backend directory in your terminal and type `npm run dev` to start the server!
+    
     
 
     
