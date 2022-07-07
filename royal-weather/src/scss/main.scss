@@ -89,6 +89,67 @@ a{
     background: #feefc6;
 }
 
+.not-found{
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/wallpaper.jpg");
+    background-position: top;
+    background-size: cover;
+
+    >.wrapper{
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(4px);
+        background: hsl(0deg 0% 100% / 50%);
+        border-bottom: 7px solid $Gold;
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+
+
+        &:before{
+            content: "404";
+            font-size: 40vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff78;
+        }
+
+        &:after{
+            content: "";
+            background-image: url("../assets/clouds.png");
+            background-position: top;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+        }
+
+
+        div{
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 62%;
+            transform: translate(-50%, -62%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            font-size: 4vw;
+            z-index: 99;
+            align-items: center;
+
+            h1{
+                color: #656565;
+            }
+        }
+    }
+
+}
+
 .panel1{
     width: 100%;
     height: 60%;

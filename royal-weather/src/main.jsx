@@ -12,6 +12,7 @@ import { HourlyWeatherProvider } from './context/HourlyWeather.context'
 import { CurrentWeatherProvider } from './context/CurrentWeather.context';
 import { LoadingProvider } from './context/Loading.context';
 import { BookmarkProvider } from './context/Bookmark.context';
+import NotFound from './NotFound';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   <Route path="/daily" element ={<App/>} />
                   <Route path="/hourly" element ={<App/>} />
                   <Route path="/bookmarks" element ={<App/>} />
+                  <Route path="/*" element ={<NotFound/>} />
                 </Routes>
               </CurrentWeatherProvider>
             </HourlyWeatherProvider>
