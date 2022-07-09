@@ -58,7 +58,7 @@ a{
 // symbols background
 .raining-bg{
     background: url('../assets/symbols/rain.gif') no-repeat center center fixed;
-    background-size: 100%;
+    background-size: contain;
 }
 
 .snowing-bg{
