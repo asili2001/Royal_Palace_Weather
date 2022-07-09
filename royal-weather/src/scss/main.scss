@@ -58,6 +58,7 @@ a{
 // symbols background
 .raining-bg{
     background: url('../assets/symbols/rain.gif') no-repeat center center fixed;
+    background-size: 100%;
 }
 
 .snowing-bg{
@@ -150,6 +151,343 @@ a{
 
 }
 
+
+.header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: $tablet){
+        height:75px;
+    }
+
+    .logo img{
+        height: 10vw;
+
+        @media screen and (min-width: $tablet){
+            height:100%;
+        }
+    }
+
+    .title{
+        font-weight: bolder;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        p{
+            font-size: 3.5vw;
+        }
+        h1{
+            font-size: 4vw;
+        }
+        
+
+        @media screen and (min-width: $tablet){
+            p{
+                font-size: 1.5em;
+            }
+            h1{
+                font-size: 2em;
+            }
+        }
+
+        .time-location{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            svg{
+                height: 40px;
+                width: 30px;
+            }
+            div{
+                font-size: 0.6rem;
+
+                address{
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+
+.weather{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 210px;
+    gap: 20px;
+
+    @media screen and (min-width: $tablet){
+        height: 100%;
+    }
+
+   > div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        grid-area: 1/1/2/2;
+
+        svg{
+            height: 120px;
+            width: 120px;
+
+            @media screen and (min-width: $mobile){
+                height: 175px;
+                width: 175px;
+            }
+        }
+
+        h2{
+            font-size: 18px;
+            @media screen and (min-width: $mobile){
+                font-size: 20px;
+            }
+        }
+    }
+
+    > div:nth-child(2){
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        grid-area: 1/2/2/3;
+
+
+        .temp{
+            p{
+                font-weight: bolder;
+            }
+            h2{
+                font-size: 75px;
+                font-weight: bolder;
+
+                @media screen and (min-width: $mobile){
+                    font-size: 100px;
+                }
+            }
+        }
+
+        .sun-pos{
+            display: flex;
+            height: 80px;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 5px;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                img{
+                    height: 45px;
+
+                    @media screen and (min-width: $mobile){
+                        height: 65px;
+                    }
+                }
+
+                h2{
+                    font-size: 18px;
+                    @media screen and (min-width: $mobile){
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    > div:nth-child(3){
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+        gap: 10px;
+        grid-area: 2 / 1 / 3 / 3;
+
+        div{
+            height: 10px;
+            width: 100%;
+            background-image: linear-gradient(to right, #cdeaff , #0085ff);
+            border-radius: 10px;
+        }
+    }
+}
+
+
+.time-location{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img{
+        height: 130px;
+    }
+}
+
+.forecast-list{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100%;
+    overflow: auto;
+
+   >h1{
+        padding: 10px 0 0 0;
+    }
+
+    .forecasts-container{
+        height: 100%;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(170px, 100%) );
+        justify-content: center;
+        justify-items: center;
+        gap: 10px;
+        padding: 10px;
+
+        @media screen and (min-width: $desktop){
+            width: 1300px;
+            margin: 0 auto;
+        }
+
+        @media screen and (min-width: $tablet){
+            grid-template-columns: repeat(auto-fit,minmax(170px,200px));
+        }
+
+        .big{
+            width: 100%;
+
+            @media screen and (min-width: $mobile){
+                width: 175px;
+            }
+        }
+        .small{
+            width: 100px;
+        }
+
+        .no-bookmarks{
+            position: absolute;
+
+            >h2{
+                font-size: 1.5rem;
+                color: #555555;
+            }
+            >p{
+                font-size: 1rem;
+                color: #787878;
+            }
+        }
+
+        .item{
+            background-color: #feefc6;
+            border-radius: 20px;
+
+            .wrapper{
+                border-radius: 20px;
+                box-shadow: 6px 3px 7px 0px #cbbe9c;
+                background-color: rgb(254 239 198 / 53%);
+                padding: 15px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+            }
+
+            .bookmarkBtn{
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                img{
+                    height: 35px;
+                    width: 30px;
+                }
+            }
+
+            .hlTemp{
+                display: flex;
+
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    img{
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .hourly-forecast{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+
+    .date-picker{
+        width: 100%;
+        background-color: #d19700;
+        list-style: none;
+        gap: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        li{
+            height: 50px;
+            min-width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: .5s ease all;
+
+            &:hover{
+                background-color: #ffffff63;
+            }
+        }
+
+        li.active{
+            color: black;
+            background: #feefc6;
+        }
+    }
+
+    .default{
+        border: 3px dotted #710c3e;
+    }
+}
+
+
+.interaction-menu{
+    padding: 10px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    background-image: linear-gradient(315deg, #ffefc5, transparent);
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    .right{
+        margin-left:auto;
+    }
+}
+
+
 .panel1{
     width: 100%;
     height: 60%;
@@ -161,76 +499,16 @@ a{
         height: 100%;
         width: 100%;
         backdrop-filter: blur(4px);
-        background: hsl(0deg 0% 100% / 50%);
-        border-bottom: 7px solid $Gold;
+        background: hsla(0deg, 0%, 100%, 0.5);
+        border-bottom: 7px solid #d19700;
         padding: 0.6rem;
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: flex-start;
 
         @media screen and (min-width: $tablet){
             padding: 3rem;
-        }
-            
-
-        .header{
-            height: 100px;
-            display: flex;
-            justify-content: space-between;
-
-            @media screen and (min-width: $tablet){
-                height:75px;
-            }
-
-            .logo img{
-                height: 10vw;
-
-                @media screen and (min-width: $tablet){
-                    height:100%;
-                }
-            }
-
-            .title{
-                font-weight: bolder;
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-
-                p{
-                    font-size: 3.5vw;
-                }
-                h1{
-                    font-size: 4vw;
-                }
-                
-
-                @media screen and (min-width: $tablet){
-                    p{
-                        font-size: 1.5em;
-                    }
-                    h1{
-                        font-size: 2em;
-                    }
-                }
-
-                .time-location{
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-    
-                    svg{
-                        height: 40px;
-                        width: 30px;
-                    }
-                    div{
-                        font-size: 0.6rem;
-
-                        address{
-                            font-size: 0.8rem;
-                        }
-                    }
-                }
-            }
         }
 
         .data-container{
@@ -241,139 +519,6 @@ a{
                 display: flex;
                 justify-content: space-between;
                 gap: 75px;
-            }
-            
-            .weather{
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 1fr);
-                height: 210px;
-                gap: 20px;
-
-                @media screen and (min-width: $tablet){
-                    height: 100%;
-                }
-
-               > div:nth-child(1){
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 10px;
-                    grid-area: 1/1/2/2;
-
-                    svg{
-                        height: 120px;
-                        width: 120px;
-
-                        @media screen and (min-width: $mobile){
-                            height: 175px;
-                            width: 175px;
-                        }
-                    }
-
-                    h2{
-                        font-size: 18px;
-                        @media screen and (min-width: $mobile){
-                            font-size: 20px;
-                        }
-                    }
-                }
-
-                > div:nth-child(2){
-                    
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    grid-area: 1/2/2/3;
-
-
-                    .temp{
-                        p{
-                            font-weight: bolder;
-                        }
-                        h2{
-                            font-size: 75px;
-                            font-weight: bolder;
-
-                            @media screen and (min-width: $mobile){
-                                font-size: 100px;
-                            }
-                        }
-                    }
-
-                    .sun-pos{
-                        display: flex;
-                        height: 80px;
-                        flex-direction: row;
-                        justify-content: space-around;
-                        gap: 5px;
-
-                        div{
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: space-between;
-
-                            img{
-                                height: 45px;
-
-                                @media screen and (min-width: $mobile){
-                                    height: 65px;
-                                }
-                            }
-
-                            h2{
-                                font-size: 18px;
-                                @media screen and (min-width: $mobile){
-                                    font-size: 20px;
-                                }
-                            }
-                        }
-                    }
-
-                }
-
-                > div:nth-child(3){
-                    display: flex;
-                    font-size: 20px;
-                    align-items: center;
-                    gap: 10px;
-                    grid-area: 2 / 1 / 3 / 3;
-
-                    div{
-                        height: 10px;
-                        width: 100%;
-                        background-image: linear-gradient(to right, #cdeaff , #0085ff);
-                        border-radius: 10px;
-                    }
-                }
-            }
-            .time-location{
-                display: flex;
-                align-items: center;
-                gap: 10px;
-
-                img{
-                    height: 130px;
-                }
-            }
-        }
-
-        .interaction-menu{
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            padding: 10px;
-            width: 100%;
-            height: 70px;
-            display: flex;
-            background-image: linear-gradient(315deg, #ffefc5, transparent);
-            gap: 10px;
-
-            .right{
-                margin-left:auto;
             }
         }
     }
@@ -388,138 +533,5 @@ a{
         height: 100%;
         width: 100%;
         overflow: hidden;
-    }
-
-    .forecast-list{
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        height: 100%;
-        overflow: auto;
-
-       >h1{
-            padding: 10px 0 0 0;
-        }
-
-        .forecasts-container{
-            height: 100%;
-            align-items: center;
-            display: grid;
-            grid-template-columns: repeat( auto-fit, minmax(170px, 100%) );
-            justify-content: center;
-            justify-items: center;
-            gap: 10px;
-            padding: 10px;
-
-            @media screen and (min-width: $desktop){
-                width: 1300px;
-                margin: 0 auto;
-            }
-
-            @media screen and (min-width: $tablet){
-                grid-template-columns: repeat(auto-fit,minmax(170px,200px));
-            }
-
-            .big{
-                width: 100%;
-
-                @media screen and (min-width: $mobile){
-                    width: 175px;
-                }
-            }
-            .small{
-                width: 100px;
-            }
-
-            .no-bookmarks{
-                position: absolute;
-
-                >h2{
-                    font-size: 1.5rem;
-                    color: #555555;
-                }
-                >p{
-                    font-size: 1rem;
-                    color: #787878;
-                }
-            }
-
-            .item{
-                background-color: #feefc6;
-                border-radius: 20px;
-                box-shadow: 6px 3px 7px 0px #cbbe9c;
-                padding: 15px;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-                position: relative;
-
-                .bookmarkBtn{
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-
-                    img{
-                        height: 35px;
-                        width: 30px;
-                    }
-                }
-
-                .hlTemp{
-                    display: flex;
-
-                    div{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-end;
-                        align-items: center;
-
-                        img{
-                            height: 20px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .hourly-forecast{
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        }
-
-
-        .date-picker{
-            width: 100%;
-            background-color: #d19700;
-            list-style: none;
-            gap: 10px;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-
-            li{
-                height: 50px;
-                min-width: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                cursor: pointer;
-                transition: .5s ease all;
-
-                &:hover{
-                    background-color: #ffffff63;
-                }
-            }
-
-            li.active{
-                color: black;
-                background: #feefc6;
-            }
-        }
-
-        .default{
-            border: 3px dotted #710c3e;
-        }
     }
 }
