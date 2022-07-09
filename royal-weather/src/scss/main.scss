@@ -152,6 +152,56 @@ a{
 }
 
 
+.panel1{
+    width: 100%;
+    height: 60%;
+    background-image: url("../assets/wallpaper.jpg");
+    background-position: top;
+    background-size: cover;
+
+    >.wrapper{
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(4px);
+        background: hsla(0, 0%, 100%, 0.6);
+        border-bottom: 7px solid #d19700;
+        padding: .6rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: flex-start;
+
+        @media screen and (min-width: $tablet){
+            padding: 3rem;
+        }
+
+        .data-container{
+            display: block;
+            height: 295px;
+
+            @media screen and (min-width: $tablet){
+                display: flex;
+                justify-content: space-between;
+                gap: 75px;
+            }
+        }
+    }
+}
+
+.panel2{
+    width: 100%;
+    height: 40%;
+    background: #fcfcfc;
+
+    .swiper-container{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+
+
 .header{
     height: 100px;
     display: flex;
@@ -484,54 +534,5 @@ a{
 
     .right{
         margin-left:auto;
-    }
-}
-
-
-.panel1{
-    width: 100%;
-    height: 60%;
-    background-image: url("../assets/wallpaper.jpg");
-    background-position: top;
-    background-size: cover;
-
-    >.wrapper{
-        height: 100%;
-        width: 100%;
-        backdrop-filter: blur(4px);
-        background: hsla(0deg, 0%, 100%, 0.5);
-        border-bottom: 7px solid #d19700;
-        padding: 0.6rem;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        justify-content: flex-start;
-
-        @media screen and (min-width: $tablet){
-            padding: 3rem;
-        }
-
-        .data-container{
-            display: block;
-            height: 295px;
-
-            @media screen and (min-width: $tablet){
-                display: flex;
-                justify-content: space-between;
-                gap: 75px;
-            }
-        }
-    }
-}
-
-.panel2{
-    width: 100%;
-    height: 40%;
-    background: #fcfcfc;
-
-    .swiper-container{
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
     }
 }
