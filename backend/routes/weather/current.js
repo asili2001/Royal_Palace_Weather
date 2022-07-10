@@ -19,13 +19,11 @@ export const current = async (req, res) => {
     try{
         //get current weather from openWeather
         const response = await openWeather.get(`/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts,flags`);
-        const reverseGeocode = await geoApify.get(`/reverse?lat=${lat}&lon=${lon}`);
         const resultData = [];
         
         resultData.push({
             date: response?.data.current.dt,
             timeZone: response?.data.timezone,
-            location : `${reverseGeocode?.data.results[0].address_line1}, ${reverseGeocode?.data.results[0].postcode}, ${reverseGeocode?.data.results[0].city}`,
             temp: response?.data.current.temp,
             weather: response?.data.current.weather[0].id,
             weatherDescription: response?.data.current.weather[0].description,
