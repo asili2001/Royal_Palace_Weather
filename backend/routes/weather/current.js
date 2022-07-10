@@ -1,5 +1,4 @@
 import openWeather from '../../apis/openWeatherV3.model.js'
-import geoApify from '../../apis/geoApify.model.js'
 import dotEnv from 'dotenv';
 dotEnv.config('./')
 import Redis from 'ioredis';
