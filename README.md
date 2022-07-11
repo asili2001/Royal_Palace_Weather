@@ -100,7 +100,6 @@ Unpacking objects: 100% (13/13), done.
 
       # App configuration
       OPEN_WEATHER_API_KEY = [API_KEY]
-      GEOAPIFY_API_KEY = 'd548c5ed24604be6a9dd0d989631f783' 
 
       OPEN_WEATHER_UNITS = 'metric'
 
