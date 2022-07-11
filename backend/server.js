@@ -1,4 +1,7 @@
 import dotEnv from 'dotenv';
+
+// I've set the cors to general access to all domains just to make it easier to test
+//But in other circumstances i would use a specific domain to allow access to only that domain.
 import cors from 'cors';
 dotEnv.config('./')
 
