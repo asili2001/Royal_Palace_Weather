@@ -6,20 +6,15 @@ import useWeatherSymbol from '../hooks/useWeatherSymbol';
 
 const DailyForecastList = () => {
 
-  const bgGetter = (id) => {
+  const bgGetter = (id:number) => {
     const bg = useWeatherSymbol(id);
     return bg.bg;
   }
 
-
-  const [weatherId, setWeatherId] = useState(null);
-  const [weatherSymbol, setWeatherSymbol] = useState(null);
-  
-
   const {dailyWeather} = useContext(DailyWeatherContext);
 
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const days:string[]    = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const months:string[]  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 
   return (

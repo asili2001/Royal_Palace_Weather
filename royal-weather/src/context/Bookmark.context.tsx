@@ -1,11 +1,22 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
+import {Boomark, DailyWeather } from "../model";
 
-const BookmarkContext = createContext();
+interface Props {
+    addBookmark: (date: number) => void,
+    removeBookmark: (date: number) => void,
+    isBookmarked: (date: number) => boolean,
+    activeBookmarks: DailyWeather[],
+    setWeatherData: React.Dispatch<React.SetStateAction<DailyWeather[]>>
+}
 
-export const BookmarkProvider = ({ children }) => {
-    const [bookmarks, setBookmarks] = useState([]);
-    const [weatherData, setWeatherData] = useState([]);
-    const [activeBookmarks, setActiveBookmarks] = useState([]);
+const BookmarkContext = createContext<Props>(null as any);
+
+
+
+export const BookmarkProvider = ({ children } : {children : ReactNode}) => {
+    const [bookmarks, setBookmarks] = useState<Boomark[]>([]);
+    const [weatherData, setWeatherData] = useState<DailyWeather[]>([]);
+    const [activeBookmarks, setActiveBookmarks] = useState<DailyWeather[]>([]);
 
 
     useEffect(() => {
@@ -14,12 +25,12 @@ export const BookmarkProvider = ({ children }) => {
 
 
     const getBookmarks = async () => {
-        try {
 
+        try {
             const Lbookmarks = localStorage.getItem('bookmarks');
             if(Lbookmarks){
                 setBookmarks(JSON.parse(Lbookmarks));
-                const x = [];
+                const x:DailyWeather[] = [];
                 
                 bookmarks && bookmarks.forEach(bookmark => {
                     const bookmarkedDays = weatherData?.find(day => day.date === bookmark.date)
@@ -36,33 +47,35 @@ export const BookmarkProvider = ({ children }) => {
         }
     }
     
-    const addBookmark = (date) => {
-        setBookmarks([...bookmarks, {date : date}]);
-        
-        //get the day object from the weatherData by date
-        const day = weatherData.find(day => day.date === date);
-        //add the day object to the activeBookmarks
-        setActiveBookmarks([...activeBookmarks, day]);
-        //save the bookmarks to local storage
-        localStorage.setItem('bookmarks', JSON.stringify([...bookmarks, {date : date}]));
+    //handlers
+    const addBookmark = (date: number) => {
 
+        setBookmarks([...bookmarks, {date : date}]);
+
+        const day = weatherData.find(day => day.date === date);
+
+        if(day !== undefined){
+            setActiveBookmarks([...activeBookmarks, day]);
+            
+            localStorage.setItem('bookmarks', JSON.stringify([...bookmarks, {date : date}]));
+            
+        }
     }
-    
-    const removeBookmark = (date) => {
+    const removeBookmark = (date: number) => {
         setBookmarks(bookmarks.filter((item) => item.date !== date));
-        //remove the day object from the activeBookmarks by date
+
         setActiveBookmarks(activeBookmarks.filter((item) => item.date !== date));
-        //save the bookmarks to local storage
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks.filter((item) => item.date !== date)));
     }
 
-
-    const isBookmarked = (date) => {
+    const isBookmarked = (date:number) => {
         return bookmarks.some((item) => item.date === date);
     }
+
+
     
     return (
-        <BookmarkContext.Provider value={{ activeBookmarks, setWeatherData, addBookmark, removeBookmark, isBookmarked }}>
+        <BookmarkContext.Provider value={{ addBookmark, removeBookmark, isBookmarked, activeBookmarks, setWeatherData }}>
         {children}
         </BookmarkContext.Provider>
     );

@@ -57,24 +57,24 @@ a{
 
 // symbols background
 .raining-bg{
-    background: url('../assets/symbols/rain.gif') no-repeat center center fixed;
+    background: url('../assets/symbols/rain.webp') no-repeat center center fixed;
     background-size: contain;
 }
 
 .snowing-bg{
-    background: url('../assets/symbols/snow.gif') no-repeat center center fixed;
+    background: url('../assets/symbols/snow.webp') no-repeat center center fixed;
 }
 
 .lightning-bg{
-    background: url('../assets/symbols/lightning.gif'), url('../assets/symbols/rain.gif') no-repeat center center fixed;
+    background: url('../assets/symbols/lightning.webp'), url('../assets/symbols/rain.webp') no-repeat center center fixed;
 }
 
 .cloud-bg{
-    background: url('../assets/symbols/cloud.gif') no-repeat center center fixed;
+    background: url('../assets/symbols/cloud.webp') no-repeat center center fixed;
 }
 
 .fog-bg{
-    background: url('../assets/symbols/fog.gif') no-repeat center center fixed;
+    background: url('../assets/symbols/fog.webp') no-repeat center center fixed;
 }
 
 .sunny-bg{
@@ -101,11 +101,12 @@ a{
         height: 100%;
         width: 100%;
         backdrop-filter: blur(4px);
-        background: hsl(0deg 0% 100% / 50%);
-        border-bottom: 7px solid $Gold;
+        background: hsla(0deg, 0%, 100%, 0.5);
+        border-bottom: 7px solid #d19700;
         padding: 0.6rem;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
 
 
         &:before{
@@ -120,13 +121,14 @@ a{
 
         &:after{
             content: "";
-            background-image: url("../assets/clouds.png");
-            background-position: top;
+            background-image: url(/src/assets/clouds.png);
             position: absolute;
+            background-position: 60% top;
             bottom: 0;
-            left: 0;
-            width: 100%;
+            width: 125%;
+            overflow: hidden;
             height: 50%;
+            animation: 10s moveHorizontal ease-in alternate infinite;
         }
 
 

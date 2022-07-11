@@ -14,8 +14,6 @@ import ThunderSymbol from './symbols/Thunder.symbol';
 import SnowSymbol from './symbols/Snow.symbol';
 import AtmosphereSymbol from './symbols/Atmosphere.symbol';
 
-import LoadingContext from '../context/Loading.context';
-
 const WeatherPanel = () =>{
     const { currentWeather } = useContext(CurrentWeatherContext);
     const weatherSymbol = useWeatherSymbol(currentWeather?.weather);

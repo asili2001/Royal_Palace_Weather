@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 
 const TimeLocationPanel = () => {
     const { currentWeather } = useContext(CurrentWeatherContext);
-    const [time, setTime] = useState(null);
+    const [time, setTime] = useState<string>('loading...');
     moment.tz.setDefault(currentWeather?.timezone);
 
     useEffect(() => {

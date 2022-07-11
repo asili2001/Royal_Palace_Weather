@@ -1,13 +1,18 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import weatherApi from "../api/weatherApi";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import weatherApi from "../api/weather.api";
+import { CurrentWeather } from "../model";
 import LoadingContext from "./Loading.context";
 
-const CurrentWeatherContext = createContext();
+interface Props {
+    currentWeather: CurrentWeather,
+}
 
+const CurrentWeatherContext = createContext<Props>(undefined as any);
 
-export const CurrentWeatherProvider = ({children}) => {
-    const { loading, loadingStart, loadingStop } = useContext(LoadingContext);
-    const [currentWeather, setCurrentWeather] = useState(null);
+export const CurrentWeatherProvider = ({children} : {children : ReactNode}) => {
+    
+    const {startLoading, endLoading } = useContext(LoadingContext);
+    const [currentWeather, setCurrentWeather] = useState<CurrentWeather>(undefined as any);
     
     useEffect(() => {
         getCurrentWeather();
@@ -19,11 +24,11 @@ export const CurrentWeatherProvider = ({children}) => {
 
 
     const getCurrentWeather = async () => {
-        loadingStart();
+        startLoading();
         try {
             const response = await weatherApi.get(`/current/lon/${import.meta.env.VITE_LON}/lat/${import.meta.env.VITE_LAT}`);
             setCurrentWeather(response.data[0]);
-            loadingStop();
+            endLoading();
             
         } catch (error) {
             console.error(error);

@@ -2,16 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 
 import BookmarkContext from '../context/Bookmark.context';
 import useWeatherSymbol from '../hooks/useWeatherSymbol';
+import { DailyWeather } from '../model';
 
 import WeatherCard from './WeatherCard';
 
 const BookmarksList = () => {
     const { activeBookmarks } = useContext(BookmarkContext);
-    const [bookmarks, setBookmarks] = useState([]);
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const [bookmarks, setBookmarks] = useState<DailyWeather[]>([]);
+    const days:string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months:string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const bgGetter = (id) => {
+    const bgGetter = (id:number) => {
       const bg = useWeatherSymbol(id);
       return bg.bg;
     }

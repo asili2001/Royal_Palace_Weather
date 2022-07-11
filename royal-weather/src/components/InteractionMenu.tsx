@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const InteractionMenu = ({slideto, currentslide})=>{
+const InteractionMenu = ({slideto, currentslide}:{slideto : (index:number)=>void, currentslide:number})=>{
     
     return(
         <div className="interaction-menu">

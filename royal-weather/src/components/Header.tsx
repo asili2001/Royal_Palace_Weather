@@ -2,8 +2,8 @@ import Logo from '../assets/logo.png';
 import TimeLocationPanel from './TimeLocationPanel';
 
 const Header = ()=>{
-    const currentDate = new Date();
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const currentDate:Date = new Date();
+    const months:string[]  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     return(
         <div className="header">

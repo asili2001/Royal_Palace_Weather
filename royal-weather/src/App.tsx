@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, useContext, useMemo} from 'react'
+import {useEffect, useRef, useState, useContext} from 'react'
 
 import Header from './components/Header';
 import WeatherPanel from './components/WeatherPanel';
@@ -9,7 +9,7 @@ import InteractionMenu from './components/InteractionMenu';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from "swiper";
+import SwiperCore, { Scrollbar } from "swiper";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -26,18 +26,21 @@ import BookmarkContext from './context/Bookmark.context';
 
 
 const App = () =>{
-    const [swiperSlide, setSwiperSlide] = useState(0);
-    const swiperRef = useRef(null);
+    const [swiperSlide, setSwiperSlide] = useState<number>(0);
+    const swiperRef = useRef() as any;
 
-    const{loading} = useContext(LoadingContext);
+    const{isLoading} = useContext(LoadingContext);
     const {dailyWeather} = useContext(DailyWeatherContext);
     const {setWeatherData} = useContext(BookmarkContext);
 
-    const changeWeatherData = useMemo(()=>{
-        return (data)=>{
-            setWeatherData(data);
+
+    useEffect(()=>{
+        if(dailyWeather !== null){
+          setWeatherData(dailyWeather);
+        }else{
+          setWeatherData([]);
         }
-    }, [setWeatherData]);
+    }, [dailyWeather])
 
 
     useEffect(() => {
@@ -62,14 +65,7 @@ const App = () =>{
     }, []);
 
 
-    useEffect(()=>{
-        if(dailyWeather !== null){
-            changeWeatherData(dailyWeather);
-        }
-    }, [dailyWeather])
-
-
-    const slideTo = (index) => {
+    const slideTo = (index:number) => {
         swiperRef.current?.swiper.slideTo(index);
     }
 
@@ -78,7 +74,7 @@ const App = () =>{
     return (
         <>
             {
-            loading ?
+            isLoading ?
                 <Loading /> 
                 :
                 <>
@@ -96,7 +92,9 @@ const App = () =>{
 
                     <section className="panel2">
                         <Swiper 
-                            ref={swiperRef}
+                            onInit={(core: SwiperCore) => {
+                              swiperRef.current = core.el
+                            }}
                             onSlideChange={(swiper) => setSwiperSlide(swiper.realIndex)}
                             initialSlide={swiperSlide}
                             scrollbar={{

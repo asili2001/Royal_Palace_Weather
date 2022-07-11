@@ -1,27 +1,34 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import weatherApi from "../api/weatherApi";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import weatherApi from "../api/weather.api";
+import { DailyWeather } from "../model";
 import LoadingContext from "./Loading.context";
 
-const DailyWeatherContext = createContext();
+interface Props {
+    dailyWeather: DailyWeather[],
+}
+
+const DailyWeatherContext = createContext<Props>(null as any);
 
 
-export const DailyWeatherProvider = ({children}) => {
-    const [dailyWeather, setDailyWeather] = useState(null);
-    const { loading, loadingStart, loadingStop } = useContext(LoadingContext);
+export const DailyWeatherProvider = ({children}:{children : ReactNode}) => {
+    const [dailyWeather, setDailyWeather] = useState<DailyWeather[]>([]);
+    const {startLoading, endLoading } = useContext(LoadingContext);
     
     useEffect(() => {
         getDailyWeather();
+
         setInterval(()=>{
             getDailyWeather()
         }, 600000);
+        
     }, []);
 
     const getDailyWeather = async () => {
         try {
-            loadingStart();
+            startLoading();
             const response = await weatherApi.get(`/daily/lon/${import.meta.env.VITE_LON}/lat/${import.meta.env.VITE_LAT}`);
             setDailyWeather(response.data);
-            loadingStop();
+            endLoading();
 
         } catch (error) {
             console.error(error);
@@ -29,13 +36,8 @@ export const DailyWeatherProvider = ({children}) => {
         }
     }
 
-    const checkIfExists = (date) => {
-        //return dailyWeather.some((item) => item.date === date);
-        console.log(dailyWeather);
-    }
-
     return (
-        <DailyWeatherContext.Provider value={{dailyWeather, checkIfExists}}>
+        <DailyWeatherContext.Provider value={{dailyWeather}}>
             {children}
         </DailyWeatherContext.Provider>
     )

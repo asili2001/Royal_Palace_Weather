@@ -2,13 +2,26 @@ import BookmarkBtn from './BookmarkBtn';
 
 import ArrowUp from '../assets/symbols/arrow-up.svg';
 
-const WeatherCard = ({data}) => {
+export interface Props {
+    title : string;
+    date :  string;
+    temp? : number;
+    hTemp? : number;
+    lTemp? : number;
+    bg : string;
+    size: string;
+    type: string;
+    unixTimeStamp?: number;
+}
+
+
+const WeatherCard = ({data} : {data : Props}) => {
     return(
         <div className={`item ${data.size} ${data.bg}`} >
             <div className="wrapper">
                 {
                     data.type === 'day' ?
-                        <BookmarkBtn date={data.unixTimeStamp}/>
+                        <BookmarkBtn date={data.unixTimeStamp || undefined}/>
                     :
                     null
                 }

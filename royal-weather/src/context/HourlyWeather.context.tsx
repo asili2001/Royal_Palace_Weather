@@ -1,12 +1,17 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import weatherApi from "../api/weatherApi";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import weatherApi from "../api/weather.api";
+import { HourlyWeather } from "../model";
 import LoadingContext from "./Loading.context";
 
-const HourlyWeatherContext = createContext();
+interface Props {
+    hourlyWeather: HourlyWeather[],
+}
 
-export const HourlyWeatherProvider = ({children}) => {
-    const { loading, loadingStart, loadingStop } = useContext(LoadingContext);
-    const [hourlyWeather, setHourlyWeather] = useState(null);
+const HourlyWeatherContext = createContext<Props>(null as any);
+
+export const HourlyWeatherProvider = ({children}: {children : ReactNode}) => {
+    const {startLoading, endLoading } = useContext(LoadingContext);
+    const [hourlyWeather, setHourlyWeather] = useState<HourlyWeather[]>([]);
 
     useEffect(() => {
         getHourlyWeather();
@@ -18,10 +23,11 @@ export const HourlyWeatherProvider = ({children}) => {
 
     const getHourlyWeather = async () => {
         try {
-            loadingStart();
+            startLoading();
             const response = await weatherApi.get(`/hourly/lon/${import.meta.env.VITE_LON}/lat/${import.meta.env.VITE_LAT}`);
             setHourlyWeather(response.data);
-            loadingStop();
+            
+            endLoading();
 
         } catch (error) {
             console.error(error);

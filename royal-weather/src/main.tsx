@@ -14,8 +14,8 @@ import { LoadingProvider } from './context/Loading.context';
 import { BookmarkProvider } from './context/Bookmark.context';
 import NotFound from './NotFound';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <Router>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Router>
       <LoadingProvider>
         <BookmarkProvider>
           <DailyWeatherProvider>
