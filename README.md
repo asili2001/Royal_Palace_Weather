@@ -99,8 +99,7 @@ Unpacking objects: 100% (13/13), done.
 
 
       # App configuration
-      OPEN_WEATHER_API_KEY = ''
-      GEOAPIFY_API_KEY = 'd548c5ed24604be6a9dd0d989631f783'
+      OPEN_WEATHER_API_KEY = [API_KEY]
 
       OPEN_WEATHER_UNITS = 'metric'
 
@@ -123,7 +122,7 @@ Unpacking objects: 100% (13/13), done.
       CACHE_EXPTIME_BETWEEN_REQESTS = 5000
 
     ```
-    The openweathermap api key can you get by signing up. follow the [link](https://openweathermap.org/)
+    The openweathermap api key can you get by signing up. follow the [link](https://openweathermap.org/api/one-call-3)
 
     Type `cd ../royal-weather` to go back to the frontend directory and then type `npm i` to install all the dependencies.
     
@@ -133,7 +132,7 @@ Unpacking objects: 100% (13/13), done.
     To run the backend, head to the backend directory in your terminal and type `npm run dev` to start the server!
     
     
-
+    
     
 
     
