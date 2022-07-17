@@ -36,7 +36,7 @@ const HourlyForecastList = () => {
         {
           hourlyWeather !== undefined ? 
           hourlyWeather[selectedDayIndex]?.hours.map((hour, index)=>{
-            const dateTime = new Date(hour.date * 1000);
+            const dateTime = new Date(hourlyWeather[selectedDayIndex].date * 1000);
 
             return <WeatherCard key={index} data={{title : `${hour.time}:00`,date : `${dateTime.getDate()} ${months[dateTime.getMonth()]}`, temp: Math.round(hour.temp), bg : bgGetter(hour.weather), size : "small", type : "hour"}}/>
           }):
